@@ -6,6 +6,7 @@ import { CaseStudySheet } from "./components/CaseStudySheet";
 
 export default function App() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<number>(0);
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Patrick Hand, cursive' }}>
@@ -47,8 +48,9 @@ export default function App() {
               </SketchyBox>
               <SketchyBox variant="dashed" padding="p-6">
                 <p className="text-lg leading-relaxed">
-                  Tapestri helps mission-driven organizations design, build, and maintain thoughtful digital tools.
-                  We bring practical support, collaborative learning, and care to every project.
+                  Tapestri helps organizations build websites and digital tools that are easier to use, easier to maintain,
+                  and better aligned with the people they serve. We bring practical technical support, clear communication,
+                  and care to every project.
                 </p>
               </SketchyBox>
               <div className="flex flex-wrap gap-4">
@@ -186,8 +188,9 @@ export default function App() {
                   early-career technologists work on real projects with structure, mentorship, and shared responsibility.
                 </p>
                 <p className="text-base leading-relaxed">
-                  When you work with us, you receive thoughtful digital support while helping create more inclusive
-                  pathways into technology. You get skilled, attentive service. We build capacity and community.
+                  When you work with us, you receive skilled, attentive digital support and contribute to a more inclusive
+                  technology pathway. We help your organization move forward while helping emerging technologists build
+                  experience, confidence, and community.
                 </p>
               </SketchyBox>
             </div>
@@ -208,9 +211,9 @@ export default function App() {
           </div>
           <SketchyBox padding="p-8">
             <p className="text-lg leading-relaxed text-center">
-              We work with nonprofits, community organizations, educators, small businesses, and mission-driven
-              teams that need practical technology support. If you're doing work that matters and need a partner
-              who understands that technology is just one part of making change happen, we'd love to talk.
+              We work with nonprofits, educators, community organizations, and small businesses that need practical
+              technology support but may not have a full in-house web or data team. If you need a partner who can help
+              clarify the problem, organize the work, and build something maintainable, we'd love to talk.
             </p>
           </SketchyBox>
         </div>
@@ -227,14 +230,18 @@ export default function App() {
             </SketchyBox>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Community Education Platform", client: "Nonprofit Educator Network" },
-              { title: "Accessible Resource Hub", client: "Community Health Collective" }
+              { title: "Website Redesign for Clarity & Access", client: "Childcare Network of Evanston" },
+              { title: "Community Hub for Healing & Equity", client: "The AUX" },
+              { title: "Beauty Salon Digital Presence", client: "Embrace Your Crown" }
             ].map((project, i) => (
               <button
                 key={i}
-                onClick={() => setIsSheetOpen(true)}
+                onClick={() => {
+                  setSelectedCaseStudy(i);
+                  setIsSheetOpen(true);
+                }}
                 className="text-left group"
               >
                 <SketchyBox padding="p-6" className="space-y-4 hover:bg-gray-50">
@@ -303,7 +310,7 @@ export default function App() {
             <div className="space-y-3">
               <div className="text-sm font-bold">Get in touch</div>
               <p className="text-sm text-gray-600">
-                hello@tapestri.tech
+                info@tapestri.tech
               </p>
               <p className="text-sm text-gray-600">
                 We respond within 2 business days.
@@ -317,7 +324,7 @@ export default function App() {
       </footer>
 
       {/* Case Study Sheet */}
-      <CaseStudySheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
+      <CaseStudySheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} caseStudyIndex={selectedCaseStudy} />
     </div>
   );
 }
