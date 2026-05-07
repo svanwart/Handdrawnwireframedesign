@@ -156,47 +156,49 @@ export default function App() {
         </div>
       </section>
 
-      {/* How We Work Section */}
+      {/* Ways to Work With Us Section */}
       <section id="how-we-work" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-3" style={{ fontFamily: 'Architects Daughter, cursive' }}>
-              How We Work
+              Ways to Work With Us
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             {[
               {
-                step: "1. Listen first",
-                description: "We start by understanding your organization, your people, and what you're actually trying to accomplish."
+                title: "Defined Projects",
+                description: "Website redesigns, new pages, CMS setup, accessibility improvements, analytics, or digital tools with a clear scope and timeline."
               },
               {
-                step: "2. Design for real people",
-                description: "Every decision is grounded in who will use your tools and what they need to do. No jargon, no assumptions."
+                title: "Launch & Cleanup Support",
+                description: "QA, content cleanup, forms, accessibility checks, analytics setup, DNS support, and final launch troubleshooting."
               },
               {
-                step: "3. Build with care",
-                description: "We write clean code, design accessible interfaces, and create systems that are built to last and easy to maintain."
+                title: "Training & Handoff",
+                description: "Practical support so your team can update content, manage your CMS, and feel confident maintaining the site."
               },
               {
-                step: "4. Share knowledge",
-                description: "We explain our work, document decisions, and help your team feel more confident managing your digital tools."
-              },
-              {
-                step: "5. Define the work clearly",
-                description: "We scope projects transparently, set realistic timelines, and communicate openly about what's possible within your budget."
+                title: "Ongoing Support",
+                description: "Small updates, troubleshooting, maintenance, analytics review, and continued improvements after launch."
               }
             ].map((item, idx) => (
               <SketchyBox key={idx} padding="p-6" className="space-y-3 hover:bg-white">
                 <h3 className="text-3xl font-black" style={{ fontFamily: 'Architects Daughter, cursive' }}>
-                  {item.step}
+                  {item.title}
                 </h3>
                 <p className="text-lg leading-relaxed text-gray-700">
                   {item.description}
                 </p>
               </SketchyBox>
             ))}
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xl leading-relaxed text-center text-gray-700">
+              Every engagement begins with a conversation about goals, scope, timeline, responsibilities, and budget, so the work is clear before it begins.
+            </p>
           </div>
         </div>
       </section>
