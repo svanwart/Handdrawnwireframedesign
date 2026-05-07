@@ -167,7 +167,7 @@ export function CaseStudySheet({ isOpen, onClose, caseStudyIndex }: CaseStudyShe
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10"
+              className="absolute top-8 right-8 z-10"
             >
               <SketchyBox padding="p-2" className="bg-white hover:bg-gray-100 cursor-pointer">
                 <X size={24} />
