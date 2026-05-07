@@ -39,7 +39,7 @@ export default function App() {
       {/* Hero Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <SketchyBox padding="p-8">
                 <h1 className="text-4xl md:text-5xl leading-tight" style={{ fontFamily: 'Architects Daughter, cursive' }}>
@@ -47,7 +47,7 @@ export default function App() {
                 </h1>
               </SketchyBox>
               <SketchyBox variant="dashed" padding="p-6">
-                <p className="text-lg leading-relaxed">
+                <p className="text-xl leading-relaxed">
                   Tapestri helps organizations build websites and digital tools that are easier to use, easier to maintain,
                   and better aligned with the people they serve. We bring practical technical support, clear communication,
                   and care to every project.
@@ -71,7 +71,7 @@ export default function App() {
       <section id="about" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <SketchyBox padding="p-8 md:p-12">
-            <p className="text-xl leading-relaxed text-center">
+            <p className="text-2xl leading-relaxed text-center">
               Tapestri combines professional consulting, hands-on learning, and collaborative problem-solving.
               We support clients while creating real-world pathways for women and early-career technologists
               growing into design, data, and engineering work.
@@ -115,10 +115,10 @@ export default function App() {
               }
             ].map((service, idx) => (
               <SketchyBox key={idx} padding="p-6" className="space-y-4 hover:bg-gray-50">
-                <h3 className="text-lg font-bold leading-snug" style={{ fontFamily: 'Architects Daughter, cursive' }}>
+                <h3 className="text-3xl font-black leading-snug" style={{ fontFamily: 'Architects Daughter, cursive' }}>
                   {service.title}
                 </h3>
-                <p className="text-base leading-relaxed text-gray-700">
+                <p className="text-lg leading-relaxed text-gray-700">
                   {service.description}
                 </p>
               </SketchyBox>
@@ -162,10 +162,10 @@ export default function App() {
               }
             ].map((item, idx) => (
               <SketchyBox key={idx} padding="p-6" className="space-y-3 hover:bg-white">
-                <h3 className="text-lg font-bold" style={{ fontFamily: 'Architects Daughter, cursive' }}>
+                <h3 className="text-3xl font-black" style={{ fontFamily: 'Architects Daughter, cursive' }}>
                   {item.step}
                 </h3>
-                <p className="text-base leading-relaxed text-gray-700">
+                <p className="text-lg leading-relaxed text-gray-700">
                   {item.description}
                 </p>
               </SketchyBox>
@@ -177,17 +177,17 @@ export default function App() {
       {/* Why Tapestri Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <SketchyBox padding="p-6">
                 <h2 className="text-3xl mb-4" style={{ fontFamily: 'Architects Daughter, cursive' }}>
                   Why Tapestri
                 </h2>
-                <p className="text-base leading-relaxed mb-4">
+                <p className="text-lg leading-relaxed mb-4">
                   Tapestri is not a traditional agency. We're a learning-centered consulting collective where
                   early-career technologists work on real projects with structure, mentorship, and shared responsibility.
                 </p>
-                <p className="text-base leading-relaxed">
+                <p className="text-lg leading-relaxed">
                   When you work with us, you receive skilled, attentive digital support and contribute to a more inclusive
                   technology pathway. We help your organization move forward while helping emerging technologists build
                   experience, confidence, and community.
@@ -210,7 +210,7 @@ export default function App() {
             </SketchyBox>
           </div>
           <SketchyBox padding="p-8">
-            <p className="text-lg leading-relaxed text-center">
+            <p className="text-xl leading-relaxed text-center">
               We work with nonprofits, educators, community organizations, and small businesses that need practical
               technology support but may not have a full in-house web or data team. If you need a partner who can help
               clarify the problem, organize the work, and build something maintainable, we'd love to talk.
@@ -230,7 +230,7 @@ export default function App() {
             </SketchyBox>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {[
               { title: "Website Redesign for Clarity & Access", client: "Childcare Network of Evanston" },
               { title: "Community Hub for Healing & Equity", client: "The AUX" },
@@ -242,19 +242,22 @@ export default function App() {
                   setSelectedCaseStudy(i);
                   setIsSheetOpen(true);
                 }}
-                className="text-left group"
+                className="text-left group h-full w-full"
               >
-                <SketchyBox padding="p-6" className="space-y-4 hover:bg-gray-50">
+                <SketchyBox padding="p-6" className="space-y-4 hover:bg-gray-50 h-full flex flex-col">
                   <WireframeBox height="250px" label={`${project.title} screenshot`} />
-                  <div className="space-y-2">
-                    <div className="text-sm text-gray-600">{project.client}</div>
+                  <div className="space-y-2 flex-grow">
+                    <div className="text-lg text-gray-600 font-bold">{project.client}</div>
                     <div className="text-xl font-bold" style={{ fontFamily: 'Architects Daughter, cursive' }}>
                       {project.title}
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm group-hover:underline">
-                    View case study <ArrowRight size={16} />
-                  </div>
+                  <SketchyBox padding="px-6 py-3" className="hover:bg-gray-800 hover:text-white inline-block text-sm mt-6">
+                    <div className="flex flex-row items-center gap-2">
+                      <span>View case study</span>
+                      <ArrowRight size={16} />
+                    </div>
+                  </SketchyBox>
                 </SketchyBox>
               </button>
             ))}
@@ -273,7 +276,7 @@ export default function App() {
             </SketchyBox>
           </div>
           <SketchyBox padding="p-8 md:p-12" className="space-y-6">
-            <p className="text-lg leading-relaxed text-center">
+            <p className="text-xl leading-relaxed text-center">
               Tell us what your organization is trying to do, where you're stuck, and what kind of support would help.
             </p>
             <div className="flex justify-center">
